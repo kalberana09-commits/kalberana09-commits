@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Beyond Frames — Video Editor</title>
+<title>BeyondFrames — Video Editor</title>
 
 <style>
 *{
@@ -16,52 +15,32 @@
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#070707;
-  color:#fff;
-  line-height:1.6;
+  background:#080808;
+  color:white;
 }
-
-:root{
-  --lime:#b7ff3c;
-  --dark:#070707;
-  --card:#101010;
-  --muted:#999;
-  --border:#222;
-}
-
-.container{
-  width:90%;
-  max-width:1100px;
-  margin:auto;
-}
-
-/* NAVBAR */
 
 nav{
   position:fixed;
   top:0;
   width:100%;
-  z-index:100;
-  background:rgba(7,7,7,.85);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid #181818;
-}
-
-.nav-inner{
   height:70px;
   display:flex;
   align-items:center;
   justify-content:space-between;
+  padding:0 7%;
+  background:rgba(8,8,8,.88);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #222;
+  z-index:10;
 }
 
 .logo{
-  font-size:20px;
+  font-size:22px;
   font-weight:800;
-  letter-spacing:-1px;
 }
 
 .logo span{
-  color:var(--lime);
+  color:#b7ff3c;
 }
 
 .nav-links{
@@ -76,1147 +55,123 @@ nav{
 }
 
 .nav-links a:hover{
-  color:var(--lime);
+  color:#b7ff3c;
 }
-
-/* HERO */
 
 .hero{
   min-height:100vh;
+  max-width:1100px;
+  margin:auto;
+  padding:190px 7% 80px;
   display:flex;
   align-items:center;
-  padding-top:70px;
 }
 
-.hero-small{
-  color:var(--lime);
-  font-size:13px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:20px;
+.hero-content{
+  max-width:800px;
 }
 
-.hero h1{
-  font-size:clamp(48px,9vw,105px);
-  line-height:.95;
+.tag{
+  color:#b7ff3c;
+  letter-spacing:5px;
+  font-size:15px;
+  margin-bottom:45px;
+}
+
+h1{
+  font-size:clamp(55px,9vw,110px);
+  line-height:.9;
   letter-spacing:-5px;
-  max-width:900px;
 }
 
-.hero h1 span{
-  color:var(--lime);
+h1 span{
+  color:#b7ff3c;
 }
 
 .hero p{
   color:#999;
-  max-width:600px;
-  margin-top:30px;
-  font-size:17px;
+  font-size:20px;
+  line-height:1.7;
+  max-width:650px;
+  margin:40px 0;
 }
 
 .buttons{
   display:flex;
-  gap:15px;
-  margin-top:35px;
+  gap:18px;
   flex-wrap:wrap;
 }
 
 .btn{
-  padding:13px 22px;
-  border-radius:4px;
+  padding:18px 28px;
+  border-radius:7px;
   text-decoration:none;
   font-weight:bold;
-  font-size:14px;
+  display:inline-block;
+}
+
+.primary{
+  background:#b7ff3c;
+  color:#050505;
+}
+
+.secondary{
   border:1px solid #333;
+  color:white;
 }
-
-.btn-primary{
-  background:var(--lime);
-  color:#000;
-  border-color:var(--lime);
-}
-
-.btn-secondary{
-  color:#fff;
-}
-
-/* SECTIONS */
 
 section{
-  padding:100px 0;
-}
-
-.section-label{
-  color:var(--lime);
-  font-size:12px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:12px;
+  max-width:1100px;
+  margin:auto;
+  padding:100px 7%;
 }
 
 .section-title{
-  font-size:42px;
-  letter-spacing:-2px;
+  font-size:45px;
   margin-bottom:45px;
 }
 
-/* WORK */
+.section-title span{
+  color:#b7ff3c;
+}
 
-.work-grid{
+.cards{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:20px;
 }
 
-.project{
-  background:var(--card);
-  border:1px solid var(--border);
-  min-height:280px;
+.card{
+  border:1px solid #252525;
+  background:#101010;
   padding:30px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  position:relative;
-  overflow:hidden;
-  transition:.3s;
+  border-radius:12px;
+  min-height:190px;
 }
 
-.project:hover{
-  transform:translateY(-5px);
-  border-color:#444;
+.card h3{
+  font-size:22px;
+  margin-bottom:15px;
 }
 
-.project-number{
-  position:absolute;
-  top:25px;
-  right:25px;
-  color:#555;
-  font-size:13px;
-}
-
-.project h3{
-  font-size:27px;
-  margin-bottom:5px;
-}
-
-.project p{
+.card p{
   color:#888;
-  font-size:14px;
-}
-
-/* ABOUT */
-
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:70px;
-}
-
-.about-text{
-  color:#999;
-  font-size:17px;
-}
-
-.skills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-content:start;
-}
-
-.skill{
-  border:1px solid #292929;
-  padding:10px 15px;
-  color:#ccc;
-  font-size:13px;
-}
-
-/* SERVICES */
-
-.services{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.service{
-  border-top:1px solid #333;
-  padding:25px 0;
-}
-
-.service span{
-  color:#555;
-  font-size:13px;
-}
-
-.service h3{
-  margin:15px 0 8px;
-  font-size:21px;
-}
-
-.service p{
-  color:#888;
-  font-size:14px;
-}
-
-/* CONTACT */
-
-.contact{
-  text-align:center;
-  border-top:1px solid #222;
-}
-
-.contact h2{
-  font-size:clamp(40px,7vw,80px);
-  letter-spacing:-4px;
-}
-
-.contact p{
-  color:#888;
-  margin:20px auto 30px;
-}
-
-.email{
-  color:var(--lime);
-  text-decoration:none;
-  font-size:18px;
-  font-weight:bold;
-}
-
-/* FOOTER */
-
-footer{
-  border-top:1px solid #181818;
-  padding:25px 0;
-  color:#555;
-  font-size:12px;
-  text-align:center;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .hero h1{
-    letter-spacing:-3px;
-  }
-
-  .work-grid,
-  .about,
-  .services{
-    grid-template-columns:1fr;
-  }
-
-  section{
-    padding:75px 0;
-  }
-
-  .section-title{
-    font-size:34px;
-  }
-
-  .project{
-    min-height:240px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-  <div class="container nav-inner">
-    <div class="logo">BEYOND<span>FRAMES</span></div>
-
-    <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-
-<header class="hero">
-  <div class="container">
-
-    <div class="hero-small">Video Editor / Visual Storyteller</div>
-
-    <h1>
-      I EDIT<br>
-      <span>BEYOND</span><br>
-      ORDINARY.
-    </h1>
-
-    <p>
-      I create cinematic, modern and engaging videos
-      designed to make brands, creators and stories stand out.
-    </p>
-
-    <div class="buttons">
-      <a href="#work" class="btn btn-primary">View My Work</a>
-      <a href="#contact" class="btn btn-secondary">Let's Work Together</a>
-    </div>
-
-  </div>
-</header>
-
-
-<!-- WORK -->
-
-<section id="work">
-
-  <div class="container">
-
-    <div class="section-label">Selected Work</div>
-
-    <h2 class="section-title">Things I've created.</h2>
-
-    <div class="work-grid">
-
-      <div class="project">
-        <div class="project-number">01</div>
-        <h3>Cinematic Reels</h3>
-        <p>Short-form edits • Transitions • Sound Design</p>
-      </div>
-
-      <div class="project">
-        <div class="project-number">02</div>
-        <h3>Brand Content</h3>
-        <p>Product videos • Social media • Commercial edits</p>
-      </div>
-
-      <div class="project">
-        <div class="project-number">03</div>
-        <h3>Fitness Content</h3>
-        <p>Gym reels • Motivational edits • Storytelling</p>
-      </div>
-
-      <div class="project">
-        <div class="project-number">04</div>
-        <h3>Travel & Lifestyle</h3>
-        <p>Cinematic vlogs • Visual stories • Color grading</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-  <div class="container">
-
-    <div class="section-label">About Me</div>
-
-    <div class="about">
-
-      <div>
-        <h2 class="section-title">
-          More than just<br>an editor.
-        </h2>
-      </div>
-
-      <div class="about-text">
-
-        <p>
-          I'm a video editor and visual storyteller focused on
-          creating clean, cinematic and engaging content.
-        </p>
-
-        <br>
-
-        <p>
-          From shooting footage to editing the final frame,
-          I focus on pacing, storytelling, sound design and
-          visuals that actually hold attention.
-        </p>
-
-        <br>
-
-        <p>
-          My goal is simple — turn ordinary footage into
-          something people remember.
-        </p>
-
-      </div>
-
-    </div>
-
-    <br><br>
-
-    <div class="skills">
-      <div class="skill">Video Editing</div>
-      <div class="skill">Cinematic Editing</div>
-      <div class="skill">Color Grading</div>
-      <div class="skill">Sound Design</div>
-      <div class="skill">Motion Graphics</div>
-      <div class="skill">Reels</div>
-      <div class="skill">Content Creation</div>
-      <div class="skill">Video Shooting</div>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- SERVICES -->
-
-<section id="services">
-
-  <div class="container">
-
-    <div class="section-label">Services</div>
-
-    <h2 class="section-title">What I can do.</h2>
-
-    <div class="services">
-
-      <div class="service">
-        <span>01</span>
-        <h3>Video Editing</h3>
-        <p>
-          Professional editing with clean cuts,
-          pacing, transitions and storytelling.
-        </p>
-      </div>
-
-      <div class="service">
-        <span>02</span>
-        <h3>Short Form Content</h3>
-        <p>
-          Reels and short videos designed for
-          Instagram, YouTube and social media.
-        </p>
-      </div>
-
-      <div class="service">
-        <span>03</span>
-        <h3>Brand Videos</h3>
-        <p>
-          Cinematic content for brands,
-          businesses and creators.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-  <div class="container">
-
-    <div class="section-label">Contact</div>
-
-    <h2>Have a project?</h2>
-
-    <p>
-      Let's turn your footage into something beyond ordinary.
-    </p>
-
-    <a class="email" href="mailto:yourmail@gmail.com">
-      yourmail@gmail.com
-    </a>
-
-    <br><br>
-
-    <div class="buttons" style="justify-content:center;">
-      <a class="btn btn-primary" href="mailto:yourmail@gmail.com">
-        Start a Project
-      </a>
-    </div>
-
-  </div>
-
-</section>
-
-
-<footer>
-  © 2026 Beyond Frames. All rights reserved.
-</footer>
-
-</body>
-  </html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Beyond Frames — Video Editor</title>
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#070707;
-  color:#fff;
   line-height:1.6;
 }
 
-:root{
-  --lime:#b7ff3c;
-  --dark:#070707;
-  --card:#101010;
-  --muted:#999;
-  --border:#222;
-}
-
-.container{
-  width:90%;
-  max-width:1100px;
-  margin:auto;
-}
-
-/* NAVBAR */
-
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:100;
-  background:rgba(7,7,7,.85);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid #181818;
-}
-
-.nav-inner{
-  height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo{
-  font-size:20px;
-  font-weight:800;
-  letter-spacing:-1px;
-}
-
-.logo span{
-  color:var(--lime);
-}
-
-.nav-links{
-  display:flex;
-  gap:25px;
-}
-
-.nav-links a{
-  color:#aaa;
-  text-decoration:none;
-  font-size:14px;
-}
-
-.nav-links a:hover{
-  color:var(--lime);
-}
-
-/* HERO */
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  padding-top:70px;
-}
-
-.hero-small{
-  color:var(--lime);
-  font-size:13px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:20px;
-}
-
-.hero h1{
-  font-size:clamp(48px,9vw,105px);
-  line-height:.95;
-  letter-spacing:-5px;
-  max-width:900px;
-}
-
-.hero h1 span{
-  color:var(--lime);
-}
-
-.hero p{
-  color:#999;
-  max-width:600px;
-  margin-top:30px;
-  font-size:17px;
-}
-
-.buttons{
-  display:flex;
-  gap:15px;
-  margin-top:35px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  padding:13px 22px;
-  border-radius:4px;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:14px;
-  border:1px solid #333;
-}
-
-.btn-primary{
-  background:var(--lime);
-  color:#000;
-  border-color:var(--lime);
-}
-
-.btn-secondary{
-  color:#fff;
-}
-
-/* SECTIONS */
-
-section{
-  padding:100px 0;
-}
-
-.section-label{
-  color:var(--lime);
-  font-size:12px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:12px;
-}
-
-.section-title{
-  font-size:42px;
-  letter-spacing:-2px;
-  margin-bottom:45px;
-}
-
-/* WORK */
-
-.work-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-}
-
-.project{
-  background:var(--card);
-  border:1px solid var(--border);
-  min-height:280px;
-  padding:30px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  position:relative;
-  overflow:hidden;
-  transition:.3s;
-}
-
-.project:hover{
-  transform:translateY(-5px);
-  border-color:#444;
-}
-
-.project-number{
-  position:absolute;
-  top:25px;
-  right:25px;
-  color:#555;
-  font-size:13px;
-}
-
-.project h3{
-  font-size:27px;
-  margin-bottom:5px;
-}
-
-.project p{
-  color:#888;
-  font-size:14px;
-}
-
-/* ABOUT */
-
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:70px;
-}
-
-.about-text{
-  color:#999;
-  font-size:17px;
-}
-
-.skills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-content:start;
-}
-
-.skill{
-  border:1px solid #292929;
-  padding:10px 15px;
-  color:#ccc;
-  font-size:13px;
-}
-
-/* SERVICES */
-
-.services{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.service{
-  border-top:1px solid #333;
-  padding:25px 0;
-}
-
-.service span{
-  color:#555;
-  font-size:13px;
-}
-
-.service h3{
-  margin:15px 0 8px;
-  font-size:21px;
-}
-
-.service p{
-  color:#888;
-  font-size:14px;
-}
-
-/* CONTACT */
-
 .contact{
   text-align:center;
   border-top:1px solid #222;
 }
 
-.contact h2{
-  font-size:clamp(40px,7vw,80px);
-  letter-spacing:-4px;
-}
-
 .contact p{
   color:#888;
   margin:20px auto 30px;
+  max-width:550px;
 }
-
-.email{
-  color:var(--lime);
-  text-decoration:none;
-  font-size:18px;
-  font-weight:bold;
-}
-
-/* FOOTER */
 
 footer{
-  border-top:1px solid #181818;
-  padding:25px 0;
-  color:#555;
-  font-size:12px;
   text-align:center;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .hero h1{
-    letter-spacing:-3px;
-  }
-
-  .work-grid,
-  .about,
-  .services{
-    grid-template-columns:1fr;
-  }
-
-  section{
-    padding:75px 0;
-  }
-
-  .section-title{
-    font-size:34px;
-  }
-
-  .project{
-    min-height:240px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-  <div class="container nav-inner">
-    <div class="logo">BEYOND<span>FRAMES</span></div>
-
-    <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-
-<header class="hero">
-  <div class="container">
-
-    <div class="hero-small">Video Editor / Visual Storyteller</div>
-
-    <h1>
-      I EDIT<br>
-      <span>BEYOND</span><br>
-      ORDINARY.
-    </h1>
-
-    <p>
-      I create cinematic, modern and engaging videos
-      designed to make brands, creators and stories stand out.
-    </p>
-
-    <div class="buttons">
-      <a href="#work" class="btn btn-primary">View My Work</a>
-      <a href="#contact" class="btn btn-secondary">Let's Work Together</a>
-    </div>
-
-  </div>
-</header>
-
-
-<!-- WORK -->
-
-<section id="work">
-
-  <div class="container">
-
-    <div class="section-label">Selected Work</div>
-
-    <h2 class="section-title">Things I've created.</h2>
-
-    <div class="work-grid">
-
-      <div class="project">
-        <div class="project-number">01</div>
-        <h3>Cinematic Reels</h3>
-        <p>Short-form edits • Transitions • Sound Design</p>
-      </div>
-
-      <div class="project">
-        <div class="project-number">02</div>
-        <h3>Brand Content</h3>
-        <p>Product videos • Social media • Commercial edits</p>
-      </div>
-
-      <div class="project">
-        <div class="project-number">03</div>
-        <h3>Fitness Content</h3>
-        <p>Gym reels • Motivational edits • Storytelling</p>
-      </div>
-
-      <div class="project">
-        <div class="project-number">04</div>
-        <h3>Travel & Lifestyle</h3>
-        <p>Cinematic vlogs • Visual stories • Color grading</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-  <div class="container">
-
-    <div class="section-label">About Me</div>
-
-    <div class="about">
-
-      <div>
-        <h2 class="section-title">
-          More than just<br>an editor.
-        </h2>
-      </div>
-
-      <div class="about-text">
-
-        <p>
-          I'm a video editor and visual storyteller focused on
-          creating clean, cinematic and engaging content.
-        </p>
-
-        <br>
-
-        <p>
-          From shooting footage to editing the final frame,
-          I focus on pacing, storytelling, sound design and
-          visuals that actually hold attention.
-        </p>
-
-        <br>
-
-        <p>
-          My goal is simple — turn ordinary footage into
-          something people remember.
-        </p>
-
-      </div>
-
-    </div>
-
-    <br><br>
-
-    <div class="skills">
-      <div class="skill">Video Editing</div>
-      <div class="skill">Cinematic Editing</div>
-      <div class="skill">Color Grading</div>
-      <div class="skill">Sound Design</div>
-      <div class="skill">Motion Graphics</div>
-      <div class="skill">Reels</div>
-      <div class="skill">Content Creation</div>
-      <div class="skill">Video Shooting</div>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- SERVICES -->
-
-<section id="services">
-
-  <div class="container">
-
-    <div class="section-label">Services</div>
-
-    <h2 class="section-title">What I can do.</h2>
-
-    <div class="services">
-
-      <div class="service">
-        <span>01</span>
-        <h3>Video Editing</h3>
-        <p>
-          Professional editing with clean cuts,
-          pacing, transitions and storytelling.
-        </p>
-      </div>
-
-      <div class="service">
-        <span>02</span>
-        <h3>Short Form Content</h3>
-        <p>
-          Reels and short videos designed for
-          Instagram, YouTube and social media.
-        </p>
-      </div>
-
-      <div class="service">
-        <span>03</span>
-        <h3>Brand Videos</h3>
-        <p>
-          Cinematic content for brands,
-          businesses and creators.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-  <div class="container">
-
-    <div class="section-label">Contact</div>
-
-    <h2>Have a project?</h2>
-
-    <p>
-      Let's turn your footage into something beyond ordinary.
-    </p>
-
-    <a class="email" href="mailto:yourmail@gmail.com">
-      yourmail@gmail.com
-    </a>
-
-    <br><br>
-
-    <div class="buttons" style="justify-content:center;">
-      <a class="btn btn-primary" href="mailto:yourmail@gmail.com">
-        Start a Project
-      </a>
-    </div>
-
-  </div>
-
-</section>
-
-
-<footer>
-  © 2026 Beyond Frames. All rights reserved.
-</footer>
-
-</body>
-  </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Beyond Frames – Video Editor</title>
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#070707;
-  color:white;
-  min-height:100vh;
-}
-
-header{
-  height:70px;
-  border-bottom:1px solid #222;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 25px;
-  background:#0b0b0b;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
-.logo{
-  font-size:21px;
-  font-weight:800;
-  letter-spacing:.5px;
-}
-
-.logo span{
-  color:#b7ff3c;
-}
-
-.header-right{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-button{
-  border:0;
-  cursor:pointer;
-  color:white;
-  background:#181<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Beyond Frames – Video Editor</title>
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#070707;
-  color:white;
-  min-height:100vh;
-}
-
-header{
-  height:70px;
-  border-bottom:1px solid #222;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 25px;
-  background:#0b0b0b;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
-.logo{
-  font-size:21px;
-  font-weight:800;
-  letter-spacing:.5px;
-}
-
-.logo span{
-  color:#b7ff3c;
-}
-
-.header-right{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-button{
-  border:0;
-  cursor:pointer;
-  color:white;
-  background:#181
+  padding:35px;
+  color:#555;
+  border-top:1px solid #
